@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Portal - Sajal Solanki</title>
+<style>
+ body{margin:0; font-family:Arial; background:#fef2f2;}
+ nav{background:#5b1028; color:#fff; padding:18px 40px; display:flex; justify-content:space-between;}
+ .hero{text-align:center; padding:50px 20px 20px;}
+ .hero small{letter-spacing:4px; color:#888; font-size:12px;}
+ .hero h1{color:#5b1028; font-size:36px; margin:10px 0;}
+ .hero p{color:#666; font-size:14px; line-height:22px;}
+ .btn-gold{background:#c89b5a; color:#fff; border:none; padding:12px 28px; border-radius:25px; cursor:pointer; margin-top:20px; font-weight:bold;}
+ .cards{display:flex; justify-content:center; gap:25px; padding:30px; flex-wrap:wrap;}
+ .card{background:#fff; width:260px; padding:25px; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); text-align:center;}
+ .form-section{background:#fff; max-width:650px; margin:20px auto; padding:35px; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.07);}
+ .form-section h2{color:#5b1028; text-align:center; margin-bottom:5px;}
+ input, select{width:100%; padding:13px; margin:9px 0; border:1px solid #ddd; border-radius:9px; font-size:14px;}
+ .success-box{display:none; background:#fff8e1; border:1px solid #f3d48a; padding:20px; border-radius:12px; margin-top:25px; text-align:center;}
+</style>
+</head>
+<body>
+
+<nav><span>✦ Student Portal</span><span>Home &nbsp; Register Now</span></nav>
+
+<div class="hero">
+ <small>SINDH AGRICULTURE UNIVERSITY CAMPUS UMERKOT</small>
+ <h1>Student Registration Portal</h1>
+ <p>Welcome to Sajal's student registration portal. Enter your academic details<br>through the registration form and view your submitted information instantly.</p>
+ <button class="btn-gold" onclick="document.getElementById('formBox').scrollIntoView()">Register Now →</button>
+</div>
+
+<div class="cards">
+ <div class="card">🎓<br><b>Student Registration</b><br><small>Easy and quick registration</small></div>
+ <div class="card">📖<br><b>Academic Details</b><br><small>Store academic information securely</small></div>
+ <div class="card">⚡<br><b>Instant Result</b><br><small>View data instantly after submit</small></div>
+</div>
+
+<div class="form-section" id="formBox">
+ <h2>Registration</h2>
+ <p style="text-align:center; color:#999; font-size:13px;">Enter your details and submit the form. Your data will be shown instantly.</p>
+
+ <input id="sname" type="text" value="Sajal Solanki">
+ <input id="semail" type="email" value="sajusolanki862@gmail.com">
+ <input id="sphone" type="text" value="+9203375862">
+ <input id="scollege" type="text" value="Sindh Agriculture University, Campus Umerkot">
+ <select id="sdept"><option selected>Software Engineering</option><option>CSE</option><option>IT</option></select>
+ <select id="scourse"><option selected>Bachelors (3rd Year)</option><option>B.Tech</option></select>
+ <select id="syear"><option selected>2023 - Present</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option></select>
+
+ <button class="btn-gold" style="width:100%; margin-top:15px;" onclick="submitForm()">Submit Registration</button>
+
+ <div class="success-box" id="success">
+   <h3 style="color:green; margin:0;">✓ Registration Successful</h3>
+   <div id="showData" style="text-align:left; font-size:14px; margin-top:15px; line-height:24px;"></div>
+   <button class="btn-gold" style="background:#5b1028; margin-top:15px; width:100%;" onclick="location.reload()">Back to Home</button>
+ </div>
+</div>
+
+<script>
+function submitForm(){
+ let name=document.getElementById('sname').value;
+ let email=document.getElementById('semail').value;
+ let phone=document.getElementById('sphone').value;
+ let college=document.getElementById('scollege').value;
+ let dept=document.getElementById('sdept').value;
+ 
+ document.getElementById('success').style.display='block';
+ document.getElementById('showData').innerHTML = `
+ <b>Student Name:</b> ${name}<br>
+ <b>Email:</b> ${email}<br>
+ <b>Phone:</b> ${phone}<br>
+ <b>College:</b> ${college}<br>
+ <b>Department:</b> ${dept}<br>
+ <b>Address:</b> Shewani Mohalla Rampir Chowk, Umerkot, Sindh
+ `;
+ window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+</body>
+</html>
